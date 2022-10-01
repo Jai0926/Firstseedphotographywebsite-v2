@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>First Seed Photography</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <style>
       h1{
          width: 520px;
@@ -39,13 +42,13 @@
     </style>
   </head>
   <body>
-    <div id="container">
-    <h1>First Seed Photography</h1>
-    <img id="banner" src ="https://My-new-website-.vivekkalaiarasa.repl.co/static/banner.jpg">
-    <h2>About First Seed</h2>
+    <div class="container">
+    <h1 class="text-centre mt-2 mb-2">First Seed Photography</h1>
+    <img class= "img-fluid" id="banner" src ="https://My-new-website-.vivekkalaiarasa.repl.co/static/banner.jpg">
+    <h2 class="text-centre mt-4 mb-4">About First Seed</h2>
     <p class= "bodytext">As a company we reach out to people and make New-born Photography affordable to all. And provide the same service at a reasonable price with frames and albums which are customizable by the client with various packages.
       </p>
-    <h2>Why Choose Us?</h2>
+    <h2 class="text-centre mt-4 mb-4">Why Choose Us?</h2>
     <p class="bodytext">
       We have been professionally trained in handling babies and photography.
 We have worked with more then 800 babies.
@@ -56,13 +59,19 @@ Where you will just have to let us know what is required And we get it done
 for you on Time.
 Everything under the same roof.
     </p>
-    <h2>OUR RESPONSIBILITY</h2>
+      <div>
+        {%for services in services%}
+          {% include 'services.html' %}
+        {% endfor %}
+        
+      </div>
+    <h2 class="text-centre mt-4 mb-4">OUR RESPONSIBILITY</h2>
     <p class="bodytext">
       Our main goal is to have 100% Customer satisfaction.
 Customer servitext: align centre;from 9am to 7 pm Every day.
     </p>
-    <div style="text-align:centre;">
-    <button>Contact Us</button>
+    <div class="text-centre">
+    <button class="btn btn-primary btn-lg">Contact Us</button>
       </div>
     </div>
   </body>
