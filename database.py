@@ -12,5 +12,8 @@ engine = create_engine(
   
 with engine.connect() as conn:
   result = conn.execute(text("select * from services"))
-  print(result.all())
+  print("type(result):", type(result))
+  result_all = result.all
+  print("type(result_all()):", type(result_all))
+  print("result_all():", result_all)
 
