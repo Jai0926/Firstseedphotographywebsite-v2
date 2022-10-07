@@ -1,38 +1,18 @@
 from flask import Flask, render_template,jsonify
+from database import services_db
+
 
 app = Flask(__name__)
 
-Services =[
-  {
-    'id': 1,
-    'title': 'New Born Photography',
-    'location':'Bengaluru ,India',
-    'Charges': 'Rs. 5000'
-  },
-  
-  {
-    'id': 2,
-    'title': 'Maternity Photography',
-    'location':'Bengaluru ,India',
-    'Charges': 'Rs. 8000'
-  },
-
-  {
-    'id': 3,
-    'title': 'Toddler Photography',
-    'location':'Bengaluru ,India',
-    'Charges': 'Rs. 10000'
-  }
-]
-
 @app.route("/")
 def hello_world():
-  return render_template('home.html', 
-                         services= Services)
+  services = services_db()
+  return render_template('home.html',
+                         services=services)
 
   @app.route("/api/services")
   def list_jobs():
-    return jsonify(Services)
+    return jsonify(services)
     
 
 if __name__ == "__main__":
