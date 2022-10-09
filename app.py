@@ -1,12 +1,12 @@
 from flask import Flask, render_template,jsonify
-from database import services_db,service_db
+from database import load_services_db,load_service_db
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-  services = services_db()
+  services = load_services_db()
   return render_template('home.html',
                          services=services)
 
@@ -16,8 +16,11 @@ def hello_world():
 
 @app.route("/service/<id>")
 def show_service(id):
-  service = service_db(id)
-  return jsonify(service)
+  service = load_service_db(id)
+  if not service:
+    return "Not Found", 404
+  return render_template('servicepage.html',
+                         service=service)
   
 
 if __name__ == "__main__":

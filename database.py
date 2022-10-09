@@ -8,7 +8,7 @@ engine = create_engine(db_connection_string,
                            "ssl_ca": "/etc/ssl/cert.pem"
                        }})
 
-def services_db():
+def load_services_db():
   with engine.connect() as conn:
     result = conn.execute(text("select * from services"))
     services = []
@@ -17,10 +17,10 @@ def services_db():
     return services
 
 
-def service_db(id):
+def load_service_db(id):
   with engine.connect() as conn:
     result = conn.execute(
-      text("select * from sevices where id = :val"),
+      text("select * from services where id = :val"),
       val = id
     )
     rows = result.all()
