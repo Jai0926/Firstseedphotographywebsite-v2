@@ -1,5 +1,5 @@
 from flask import Flask, render_template,jsonify
-from database import services_db
+from database import services_db,service_db
 
 
 app = Flask(__name__)
@@ -13,7 +13,12 @@ def hello_world():
   @app.route("/api/services")
   def list_jobs():
     return jsonify(services)
-    
+
+@app.route("/service/<id>")
+def show_service(id):
+  service = service_db(id)
+  return jsonify(service)
+  
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

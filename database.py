@@ -15,3 +15,16 @@ def services_db():
     for row in result.all():
       services.append(dict(row))
     return services
+
+
+def service_db(id):
+  with engine.connect() as conn:
+    result = conn.execute(
+      text("select * from sevices where id = :val"),
+      val = id
+    )
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      return dict(rows[0])
