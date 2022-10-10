@@ -1,15 +1,21 @@
 <!DCOTYPE html>
 <html>
   <head>
-    <title>{{service.title}}First Seed Photography</title>
+    <title>{{service.title}}First Seed Photography</title
+    {%include 'bootstrap.html'%}                                                
   </head>
   <body>
+    {% include 'nav.html' %}
+    <div class="container">
+    <h1 class="text-centre mt-2 mb-2">First Seed Photography</h1>
+    {% include'banner.html'%}
     <h3>Title</h3>
     <p>{{service.title}}</p>
     <h3>Location</h3>
     <p>{{service.location}}</p>
     <h3>Salary</h3>
     <p>{{service.salary}}</p>
+    </div>
   </body>
 </html>
   
