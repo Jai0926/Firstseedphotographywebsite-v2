@@ -29,7 +29,8 @@ def apply_to_service(id):
    add_application_to_db(id,data)
    return render_template('application_submited.html',
                          application = data,
-                        service=service)
+                         service=service)
+
   
 
 if __name__ == "__main__":
