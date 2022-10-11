@@ -1,0 +1,31 @@
+<!DCOTYPE html>
+<html>
+<head>
+ <title>Application Submitted </title>
+   {%include 'bootstrap.html'%}
+  {% include 'nav.html' %}
+  </head>
+  <body>
+    <div class="container">
+    <h1 class="text-centre mt-2 mb-2">First Seed Photography</h1>
+    {% include'banner.html'%}
+    <p>Your Application for "{{service['title']}}" at First seed has been submitted. </p>
+    <h4>Full Name</h4>
+    <div class="mb-2">{{application['full_name']}}</div>
+
+    <h4>Email</h4>
+    <div class="mb-2">{{application['email']}}</div>
+
+    <h4>Phone Number</h4>
+    <div class="mb-2">{{application['Phone Number']}}</div>
+
+    <h4>Shoot Enquiryt</h4>
+    <div class="mb-2">{{application['Shoot Enquiry']}}</div>
+    </div>
+      
+    <h4>Shoot Requirement</h4>
+    <div class="mb-2">{{application['Explain']}}</div>
+    </div>
+  </body>
+  
+</html>

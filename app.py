@@ -1,5 +1,5 @@
-from flask import Flask, render_template,jsonify
-from database import load_services_db,load_service_db
+from flask import Flask, render_template,jsonify,request
+from database import load_services_db,load_service_db,add_application_to_db
 
 
 app = Flask(__name__)
@@ -21,6 +21,15 @@ def show_service(id):
     return "Not Found", 404
   return render_template('servicepage.html',
                          service=service)
+
+@app.route("/service/<id>/apply", methods=['post'])
+def apply_to_service(id):
+   data = request.form
+   service= load_service_db(id)
+   add_application_to_db(id,data)
+   return render_template('application_submited.html',
+                         application = data,
+                        service=service)
   
 
 if __name__ == "__main__":

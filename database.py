@@ -28,3 +28,15 @@ def load_service_db(id):
       return None
     else:
       return dict(rows[0])
+
+def add_application_to_db(service_id,application):
+  with engine.connect() as conn:
+    query = text("INSERT INTO applications(services_id.full_name,email,Shoot_Enquiry,Shoot_Requirement,Phone_Number) VALUES(:services_id, :full_name, :email, :Shoot_Enquiry, :Shoot_Requirement,:Phone_Number)")
+
+    conn.execute(query,
+                 service_id=service_id,
+                 full_name=data['full_name'],
+                 email=data['email'],
+                 Shoot_Enquiry=data['Shoot Enquiry'],
+                 Shoot_Requirement=data['Explain'],
+                 Phone_Number=data['Phone Number'])
